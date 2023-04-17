@@ -1,0 +1,8 @@
+node_modules
+uploads
+images
+package-lock.json
+img
+server1/.env
+server2/.env
+server3/.env
