@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-server
+  name: backend-server-2
   labels:
-    app: backend
+    app: backend-2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: backend-2
   template:
     metadata:
       labels:
-        app: backend
+        app: backend-2
     spec:
       containers:
-        - name: backend
-          image: viniths/server1
+        - name: backend-2
+          image: viniths/server2:2.0
           ports:
-            - containerPort: 8000
+            - containerPort: 8002
           env:
             - name: MONGO_URI
               value: mongodb://172.17.0.2:27017/ecommerce

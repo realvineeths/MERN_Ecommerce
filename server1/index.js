@@ -9,9 +9,10 @@ const cors = require("cors");
 const authRouter = require("./routes/auth");
 const usersRouter = require("./routes/users");
 
+console.log('database',"ecommerce");
 
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect("mongodb://mongodb:27017/ecommerce", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // useCreateIndex: true,
@@ -29,6 +30,10 @@ app.use(cors('*'));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.get('/hello',(req,res)=>{
+  res.send("hello world");
+})
 
 app.use("/api", authRouter);
 

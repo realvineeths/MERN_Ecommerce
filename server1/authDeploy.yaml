@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-server-2
+  name: backend-server
   labels:
-    app: backend-2
+    app: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend-2
+      app: backend
   template:
     metadata:
       labels:
-        app: backend-2
+        app: backend
     spec:
       containers:
-        - name: backend-2
-          image: viniths/server2:2.0
+        - name: backend
+          image: viniths/auth:1.0
           ports:
-            - containerPort: 8002
+            - containerPort: 8001
           env:
             - name: MONGO_URI
-              value: mongodb://172.17.0.2:27017/ecommerce
+              value: mongodb://mongo:27017/ecommerce
             - name: BRAINTREE_MERCHANT_ID
               value: n74dc2kw9g3ws389
             - name: BRAINTREE_PUBLIC_KEY
