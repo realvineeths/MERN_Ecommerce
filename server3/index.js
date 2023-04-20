@@ -12,7 +12,7 @@ const categoryRouter = require("./routes/categories");
 
 // Database Connection
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect("mongodb://mongodb:27017/ecommerce", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // useCreateIndex: true,
@@ -37,7 +37,7 @@ app.use("/api/category", categoryRouter);
 
 
 // Run Server
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8003;
 app.listen(PORT, () => {
   console.log("Server is running on ", PORT);
 });

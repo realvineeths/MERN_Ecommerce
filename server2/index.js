@@ -17,7 +17,7 @@ const orderRouter = require("./routes/orders");
 // const usersRouter = require("./routes/users");
 const customizeRouter = require("./routes/customize");
 // Import Auth middleware for check user login or not~
-const { loginCheck } = require("./middleware/auth");
+// const { loginCheck } = require("./middleware/auth");
 const CreateAllFolder = require("./config/uploadFolderCreateScript");
 
 /* Create All Uploads Folder if not exists | For Uploading Images */
@@ -25,7 +25,7 @@ CreateAllFolder();
 
 // Database Connection
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect("mongodb://mongodb:27017/ecommerce", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -55,7 +55,6 @@ app.use("/api/order", orderRouter);
 app.use("/api/customize", customizeRouter);
 
 // Run Server
-console.log(process.env.DATABASE);
 const PORT = process.env.PORT || 8002;
 app.listen(PORT, () => {
   console.log("Server is running on ", PORT);
