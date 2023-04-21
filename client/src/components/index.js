@@ -16,6 +16,7 @@ import { UserProfile, UserOrders, SettingUser } from "./shop/dashboardUser";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 /* Routing All page will be here */
+console.log("process testing",process.env.REACT_APP_API_URL2);
 const Routes = (props) => {
   return (
     <Router>

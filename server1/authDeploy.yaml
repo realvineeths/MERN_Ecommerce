@@ -28,3 +28,21 @@ spec:
               value: bgytmgzhz5f6t2tg
             - name: BRAINTREE_PRIVATE_KEY
               value: e6f226166da99d874f00008f0bba14f
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-server
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8001
+      targetPort: 8001
+      nodePort: 30002
+  selector:
+    app: backend
+

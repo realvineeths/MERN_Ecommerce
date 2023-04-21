@@ -6,6 +6,7 @@ import { homeState, homeReducer } from "./HomeContext";
 import SingleProduct from "./SingleProduct";
 
 export const HomeContext = createContext();
+console.log(process.env.REACT_APP_API_URL1);
 
 const HomeComponent = () => {
   return (
